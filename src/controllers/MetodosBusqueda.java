@@ -1,11 +1,13 @@
 package controllers;
 
 import views.ShowConsole;
+import models.Persona;
 
 public class MetodosBusqueda {
 
     private ShowConsole showConsole;
     private int[] arreglo;
+
 
     public MetodosBusqueda(){
         this.arreglo = new int[] {10, 11, -2, 5, 6, 8, 15, 22};
@@ -69,4 +71,40 @@ public class MetodosBusqueda {
         }
         return null; 
     }
+
+    public Persona searchPersonByName(Persona[] personas, String name){
+         for (Persona persona : personas) {
+            if (persona.getName().equalsIgnoreCase(name)) {
+                return persona;
+                }
+            }
+            return null;
+        }
+
+    //Encontrar una persona que sea mayor de age
+    //Edad sea impar
+        public Persona findPersonByAgeAndImpar(Persona[] personas, int age) {
+            for (Persona persona : personas) {
+                if (persona.getAge() > age && persona.getAge() % 2 != 0) {
+                    return persona;
+                }
+            }
+            return null;    
+    }
+
+    //Busqueda por valor de nombre 498
+    public Persona findPersonByNameValue(Persona[] personas, int nameValue) {
+        for (Persona persona : personas) {
+            int valorNombre = 0;
+            String name = persona.getName();
+            for (int i = 0; i < name.length(); i++) {
+                valorNombre += (int) name.charAt(i);
+            }
+            if (valorNombre == nameValue) {
+                return persona;
+            }
+        }
+        return null;
+    }
 }
+

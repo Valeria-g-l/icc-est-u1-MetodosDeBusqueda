@@ -28,4 +28,12 @@ public class ShowConsole {
             System.out.println("El numero buscado NO se encontro");
         }
     }
+
+    public void showPersonResult(models.Persona persona, String name) {
+        if (persona != null) {
+            System.out.println("Persona encontrada: " + persona);
+        } else {
+            System.out.println("No se encontró una persona con el nombre: " + name);
+        }
+    }
 }
